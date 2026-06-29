@@ -49,3 +49,6 @@ Eventually:
 The ingestion pipeline becomes the bottleneck instead of the trading algorithm.
 
 This repository demonstrates how object reuse dramatically reduces this overhead.
+
+
+#updated by kuldip
