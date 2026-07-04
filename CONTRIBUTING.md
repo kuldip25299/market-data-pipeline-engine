@@ -20,7 +20,7 @@ correctness.
 ## Local Development Setup
 
 ```bash
-git clone https://github.com/<your-username>/01-market-data-pipeline-engine.git
+git clone https://github.com/<your-username>/market-data-pipeline-engine.git
 cd 01-market-data-pipeline-engine
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
