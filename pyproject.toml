@@ -1,0 +1,54 @@
+[project]
+name = "market-data-pipeline-engine"
+version = "0.1.0"
+description = "A production-inspired market data pipeline, built to teach how trading systems scale from one user to thousands."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Your Name" }]
+keywords = ["trading", "market-data", "asyncio", "performance", "quant-infra"]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "mypy>=1.9.0",
+    "ruff>=0.4.0",
+    "black>=24.0.0",
+]
+charts = [
+    "matplotlib>=3.8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["market_pipeline*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+    "stress: slow, high-volume tests excluded from the default fast run",
+]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]

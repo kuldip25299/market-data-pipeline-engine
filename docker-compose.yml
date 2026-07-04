@@ -1,0 +1,9 @@
+services:
+  pipeline:
+    build: .
+    container_name: market-data-pipeline
+    volumes:
+      - ./benchmarks/results:/app/benchmarks/results
+    # Override the default command per use case, e.g.:
+    #   docker compose run pipeline python examples/run_naive_example.py
+    command: ["python", "benchmarks/compare.py", "500000", "1000"]
