@@ -125,13 +125,6 @@ Supporting pieces: `market_pipeline/generator.py`, `models.py`,
 - Every metric we'll later use to justify an optimization is being
   collected from day one (`PipelineMetrics`), not bolted on later.
 
-## Interview Questions
-
-1. Why use a sentinel value instead of an out-of-band signal (like a
-   separate `asyncio.Event`) to indicate the producer is done?
-2. What would happen to this pipeline if the consumer raised an
-   exception on tick #500,000? How would you make it more robust?
-
 ## Real Production Notes
 
 Real feed handlers almost always wrap the consumer loop in structured
@@ -146,11 +139,3 @@ simplify away here to keep the core lesson visible.
   never actually enqueued.
 - Assuming `asyncio.gather` runs coroutines on separate threads (it
   does not -- they run cooperatively on a single event loop).
-
-## Exercises
-
-1. Modify `pipeline_naive.py` to print a running counter of ticks
-   processed every 100,000 ticks.
-2. What happens if you swap the order of arguments to `asyncio.gather`
-   in `run_naive_pipeline`? Does the pipeline still work? Why or why
-   not?
