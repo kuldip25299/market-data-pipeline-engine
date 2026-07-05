@@ -123,13 +123,7 @@ not eliminating) the benefit.
   and `Peak Memory`, with throughput improving as a downstream effect.
 - Pool sizing should be informed by observed peak queue depth, not
   guessed.
-
-## Interview Questions
-
-1. Why do we run both pipelines with the same random seed?
-2. If throughput improved by only 5% but memory usage dropped by 60%,
-   would you still consider the optimization worthwhile? Why?
-
+  
 ## Real Production Notes
 
 Production trading firms often run benchmarks like this continuously
@@ -143,11 +137,3 @@ sometimes called "performance CI" or "benchmark gating."
   definitive, without accounting for run-to-run variance.
 - Quoting absolute benchmark numbers from someone else's machine as if
   they'll hold true on your own hardware.
-
-## Exercises
-
-1. Run `compare.py` five times at the same tick count and record the
-   variance in throughput. How consistent are the results?
-2. Try `pool_size=10` and `pool_size=10000` for a 1,000,000-tick run.
-   How does pool size affect the objects_created/reused ratio and
-   overall throughput?
