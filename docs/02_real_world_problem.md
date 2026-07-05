@@ -111,13 +111,6 @@ consumers, queues, backpressure, memory management) in miniature.
 - Correctness (no lost/duplicated ticks) is just as important as raw
   speed.
 
-## Interview Questions
-
-1. Why might a risk engine need to see market data independently of
-   the trading strategy, rather than trusting the strategy's own
-   calculations?
-2. What could go wrong if a market data pipeline silently dropped 1%
-   of ticks under load?
 
 ## Real Production Notes
 
@@ -132,10 +125,3 @@ microseconds off steps 1-3 above, before the pipeline even begins.
 - Underestimating how many independent consumers a single tick may
   need to reach.
 
-## Exercises
-
-1. Sketch (on paper or in a diagram tool) your own version of the
-   9-step chain above, using a different asset class (e.g. crypto or
-   futures).
-2. Identify which step in the chain you think is hardest to make fast,
-   and why.
