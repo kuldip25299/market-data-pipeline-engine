@@ -90,12 +90,6 @@ build the discipline to avoid it.
 - "Why" always comes before "how" in this repository.
 - Every optimization must be justified by a benchmark, not intuition.
 
-## Interview Questions
-
-1. Why might a trading system prefer nanosecond timestamps over
-   millisecond timestamps?
-2. What's wrong with optimizing code before measuring where time is
-   actually spent?
 
 ## Real Production Notes
 
