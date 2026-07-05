@@ -98,14 +98,7 @@ pipeline.
   vague "Python is slow."
 - Profiling tools themselves add overhead; use them to find bottlenecks,
   not to report final performance numbers.
-
-## Interview Questions
-
-1. Why might `cProfile`'s reported total runtime be misleading if
-   quoted as the system's real-world throughput?
-2. What's the difference between what `cProfile` measures and what
-   `tracemalloc` measures?
-
+  
 ## Real Production Notes
 
 Production systems facing this exact issue often reach for the same
@@ -123,12 +116,3 @@ be a much larger, unjustified leap at this stage.
   that only shows up at scale.
 - Optimizing the first line of code that "looks slow" without profiler
   evidence.
-
-## Exercises
-
-1. Run `cProfile` against the naive pipeline at 10,000 ticks and then
-   at 1,000,000 ticks. Compare the percentage of time attributed to
-   `Tick.__init__` at each scale.
-2. Try commenting out `metrics.record_queue_size()` calls -- does
-   profiling show this as a meaningful cost? Why might tracking simple
-   metrics be "cheap enough to always leave on" in production?
