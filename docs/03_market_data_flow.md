@@ -112,13 +112,6 @@ covered in Chapter 4.
 - `asyncio.Queue` is a task-safe hand-off point between coroutines
   running on the same event loop.
 
-## Interview Questions
-
-1. What is backpressure, and why might an unbounded queue be
-   dangerous in production even though it's simple?
-2. Why is decoupling producer and consumer speed valuable even if you
-   never expect the consumer to be slow?
-
 ## Real Production Notes
 
 Production market data pipelines often use dedicated messaging
@@ -128,18 +121,3 @@ bounded memory, multi-consumer fan-out, and cross-process (not just
 cross-coroutine) communication. We start with `asyncio.Queue` because
 it teaches the *pattern* without the operational overhead of running
 external infrastructure -- see Chapter 9 for how this evolves.
-
-## Common Beginner Mistakes
-
-- Confusing "the queue is a fix" with "the queue reveals the problem."
-- Forgetting that an unbounded queue can grow to consume all available
-  memory if a consumer is permanently slower than the producer.
-
-## Exercises
-
-1. Draw your own sequence diagram showing what happens if the
-   `Consumer` in the diagram above becomes 10x slower halfway through
-   the run.
-2. Name one real-world queueing system (post office, restaurant
-   kitchen, call center) and map its "producer," "queue," and
-   "consumer" roles.
