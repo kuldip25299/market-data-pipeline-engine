@@ -118,13 +118,6 @@ difference is `pool.acquire()` / `pool.release()` in place of
 - `reset()`-in-place is the mechanism; `acquire`/`release` is the
   contract.
 
-## Interview Questions
-
-1. What bug could occur if a consumer kept a reference to a `Tick`
-   after calling `pool.release(tick)`?
-2. Why does `TickObjectPool.acquire()` fall back to real allocation
-   instead of blocking when the pool is exhausted?
-
 ## Real Production Notes
 
 Object pools are common in game engines, network servers, and trading
@@ -141,12 +134,3 @@ reuse instead of reallocate -- is identical.
 - Sizing the pool arbitrarily without measuring actual peak concurrent
   usage (Chapter 7 shows how to reason about pool sizing empirically).
 - Reading a `Tick`'s fields after releasing it back to the pool.
-
-## Exercises
-
-1. Deliberately remove the `pool.release(tick)` call in
-   `pipeline_optimized.py`'s consumer and re-run the optimized
-   benchmark. What happens to `objects_created` as tick count grows?
-2. Modify `TickObjectPool` to log a warning every time it falls back
-   to overflow allocation. Use it to determine the smallest pool size
-   that avoids overflow entirely for a 1,000,000-tick run.
