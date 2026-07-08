@@ -354,14 +354,6 @@ figures.
 - Structured error handling and dead-letter queues in the consumer
   path.
 
----
-
-## Contributing
-
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for
-setup instructions and our engineering standards (explain WHY before
-HOW, profile before optimizing, keep files under ~200 lines). Please
-also review our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
